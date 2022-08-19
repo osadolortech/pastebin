@@ -17,5 +17,5 @@ class PasteView(viewsets.ModelViewSet):
 class Redirect(View):
     def get(self,shorten_url):
         shorten_url = settings.HOST_URL +'/'+self.kwargs['shorten_url']
-        redirect_link = PasteBin.objects.filter(shorten_url=shorten_url).first().text
-        return Response(redirect_link)
+        saved_text = PasteBin.objects.filter(shorten_url=shorten_url).first().text
+        return Response(saved_text)
