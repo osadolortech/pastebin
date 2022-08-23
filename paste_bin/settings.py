@@ -42,7 +42,7 @@ SECRET_KEY = config('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = config('DEBUG', cast=bool)
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["*"]
 
 HOST_URL = 'http://127.0.0.1:8000'
 
@@ -79,6 +79,9 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'paste_bin.urls'
+
+CORS_ORIGIN_ALLOW_ALL = True
+CORS_ALLOW_CREDENTIALS = True
 
 TEMPLATES = [
     {
@@ -207,4 +210,6 @@ SIMPLE_JWT = {
 }
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
 django_heroku.settings(locals())
+STATICFILES_STORAGE = "whitenoise.storage.CompressedStaticFilesStorage"
