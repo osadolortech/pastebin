@@ -114,7 +114,7 @@ REST_AUTH_REGISTER_SERIALIZERS = {
 }
 
 REST_AUTH_SERIALIZERS = {
-    'USER_DETAILS_SERIALIZER': 'pasteapi.serializer.CustomRegisterSerializer',
+    'USER_DETAILS_SERIALIZER': 'pasteapi.serializer.CustomUserSerializer',
 }
 
 REST_FRAMEWORK = {
