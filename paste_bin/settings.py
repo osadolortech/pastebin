@@ -44,7 +44,7 @@ DEBUG = config('DEBUG', cast=bool)
 
 ALLOWED_HOSTS = ["*"]
 
-HOST_URL = 'http://127.0.0.1:8000'
+HOST_URL = 'https://robot-pastebin.herokuapp.com/'
 
 # Application definition
 
@@ -62,6 +62,7 @@ INSTALLED_APPS = [
     'allauth.account',
     'dj_rest_auth.registration',
     'user',
+    'corsheaders',
     'pasteapi',
     'dj_rest_auth'
 ]
@@ -70,6 +71,7 @@ SITE_ID = 1
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -79,9 +81,6 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'paste_bin.urls'
-
-CORS_ORIGIN_ALLOW_ALL = True
-CORS_ALLOW_CREDENTIALS = True
 
 TEMPLATES = [
     {
